@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Corter Digital Marketing — Grow Your Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root {
+  --black:   #080808;
+  --deep:    #0e0e0e;
+  --surface: #141414;
+  --raised:  #1c1c1c;
+  --border:  rgba(180,148,72,0.15);
+  --gold:    #c9a84c;
+  --gold-lt: #e8c97a;
+  --gold-dk: #8a6820;
+  --text:    #f0ebe0;
+  --muted:   #7a7268;
+  --marble-line: rgba(200,180,140,0.06);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ─── MARBLE TEXTURE ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      108deg,
+      transparent,
+      transparent 120px,
+      var(--marble-line) 121px,
+      transparent 122px
+    ),
+    repeating-linear-gradient(
+      72deg,
+      transparent,
+      transparent 200px,
+      rgba(200,180,140,0.03) 201px,
+      transparent 202px
+    ),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── GOLD LINE ACCENT ─── */
+.gold-line {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto;
+}
+
+.gold-line-left {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: rgba(8,8,8,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: padding 0.3s ease;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--gold-lt);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav-logo span {
+  color: var(--text);
+  font-weight: 300;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover { color: var(--gold-lt); }
+
+.btn-nav {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  border: none;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 20px rgba(201,168,76,0.2);
+}
+
+.btn-nav:hover {
+  background: var(--gold-lt);
+  box-shadow: 0 4px 28px rgba(201,168,76,0.4);
+}
+
+.btn-nav:active { transform: scale(0.97); }
+.btn-nav:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* ─── SECTION SHARED ─── */
+section { position: relative; z-index: 1; }
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 40px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+#hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 80%, rgba(201,168,76,0.03) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+  animation: fadeup 1s cubic-bezier(0.16,1,0.3,1) 0.1s both;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(54px, 9vw, 108px);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  max-width: 900px;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+  animation: fadeup 1s cubic-bezier(0.16,1,0.3,1) 0.2s both;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold-lt);
+}
+
+.hero-sub {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 520px;
+  margin: 28px auto 44px;
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+  animation: fadeup 1s cubic-bezier(0.16,1,0.3,1) 0.35s both;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  animation: fadeup 1s cubic-bezier(0.16,1,0.3,1) 0.45s both;
+}
+
+.btn-primary {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  border: none;
+  padding: 16px 36px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 32px rgba(201,168,76,0.25);
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.btn-primary:hover {
+  background: var(--gold-lt);
+  box-shadow: 0 6px 40px rgba(201,168,76,0.45);
+}
+
+.btn-primary:active { transform: scale(0.97); }
+.btn-primary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.btn-ghost {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: transparent;
+  border: 1px solid var(--gold-dk);
+  padding: 15px 36px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  display: inline-block;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.05);
+}
+
+.btn-ghost:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.hero-badge {
+  position: relative;
+  z-index: 1;
+  margin-top: 64px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  animation: fadeup 1s cubic-bezier(0.16,1,0.3,1) 0.55s both;
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--gold-lt);
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.hero-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--border);
+}
+
+@keyframes fadeup {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── SECTION HEADER ─── */
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--gold-lt);
+}
+
+.section-desc {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ─── SERVICES ─── */
+#services {
+  padding: 120px 60px;
+  background: var(--deep);
+}
+
+/* ─── CAROUSEL ─── */
+.services-carousel {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0 60px;
+}
+
+.carousel-track-wrap {
+  overflow: hidden;
+  position: relative;
+  height: 560px;
+  touch-action: pan-y;
+}
+@media (max-width: 640px) {
+  .carousel-track-wrap { height: 520px; }
+  .service-card { padding: 32px 24px; }
+  .carousel-arrow { width: 36px; height: 36px; }
+}
+
+.services-grid {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  align-items: center;
+  height: 100%;
+  transition: none;
+}
+
+.service-card {
+  background: var(--surface);
+  padding: 48px 44px;
+  position: absolute;
+  width: min(520px, 85vw);
+  border: 1px solid var(--border);
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.5s ease, box-shadow 0.5s ease;
+  top: 50%;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-card.active {
+  transform: translateX(-50%) translateY(-50%) scale(1);
+  opacity: 1;
+  z-index: 3;
+  box-shadow:
+    0 0 0 1px rgba(201,168,76,0.12),
+    0 8px 40px rgba(0,0,0,0.7),
+    0 24px 80px rgba(0,0,0,0.5),
+    0 0 60px rgba(201,168,76,0.06);
+  border-color: rgba(201,168,76,0.25);
+}
+
+.service-card.active::before { opacity: 1; }
+
+.service-card.prev {
+  transform: translateX(calc(-50% - min(460px, 92vw))) translateY(-50%) scale(0.82);
+  opacity: 0.45;
+  z-index: 2;
+}
+
+.service-card.prev2 {
+  transform: translateX(calc(-50% - min(760px, 150vw))) translateY(-50%) scale(0.68);
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.service-card.next {
+  transform: translateX(calc(-50% + min(460px, 92vw))) translateY(-50%) scale(0.82);
+  opacity: 0.45;
+  z-index: 2;
+}
+
+.service-card.next2 {
+  transform: translateX(calc(-50% + min(760px, 150vw))) translateY(-50%) scale(0.68);
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.service-card.hidden {
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  margin-top: -30px;
+}
+
+.carousel-arrow:hover {
+  background: var(--float);
+  border-color: rgba(201,168,76,0.3);
+}
+
+.carousel-arrow:active { transform: translateY(-50%) scale(0.93); }
+.carousel-arrow.left  { left: 0; }
+.carousel-arrow.right { right: 0; }
+
+/* Dots */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--muted);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+  border: none;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: var(--gold);
+  transform: scale(1.4);
+}
+
+.service-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--gold-dk);
+  line-height: 1;
+  margin-bottom: 24px;
+  opacity: 0.6;
+}
+
+.service-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.service-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.service-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.service-items li {
+  font-size: 12px;
+  color: rgba(240,235,224,0.5);
+  letter-spacing: 0.04em;
+  padding-left: 16px;
+  position: relative;
+}
+
+.service-items li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold-dk);
+}
+
+/* ─── PROCESS STRIP ─── */
+#process {
+  padding: 100px 60px;
+  background: var(--black);
+  text-align: center;
+}
+
+.process-steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.process-step {
+  flex: 1;
+  min-width: 160px;
+  padding: 32px 24px;
+  position: relative;
+}
+
+.process-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 44px;
+  right: 0;
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+}
+
+.process-icon {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--gold);
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.process-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ─── PRICING ─── */
+#pricing {
+  padding: 120px 60px;
+  background: var(--deep);
+  text-align: center;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.pricing-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 48px 40px;
+  position: relative;
+  box-shadow:
+    0 0 0 1px rgba(201,168,76,0.04),
+    0 16px 48px rgba(0,0,0,0.5);
+}
+
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.pricing-card.featured {
+  border-color: rgba(201,168,76,0.35);
+  transform: scale(1.04);
+  box-shadow:
+    0 0 0 1px rgba(201,168,76,0.08),
+    0 24px 64px rgba(0,0,0,0.6),
+    0 0 60px rgba(201,168,76,0.08);
+  z-index: 2;
+}
+
+.pricing-banner {
+  max-width: 1100px;
+  margin: 32px auto 0;
+  background: var(--surface);
+  border: 1px solid rgba(201,168,76,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px 56px;
+  position: relative;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 40px rgba(201,168,76,0.04);
+}
+
+.pricing-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.pricing-banner-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.pricing-banner-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+  line-height: 1.1;
+}
+
+.pricing-banner-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.pricing-banner-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.pricing-banner-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  font-weight: 600;
+  color: var(--gold-lt);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.pricing-banner-amount sup {
+  font-size: 24px;
+  font-weight: 300;
+  vertical-align: super;
+  color: var(--gold);
+}
+
+@media (max-width: 768px) {
+  .pricing-banner { flex-direction: column; padding: 32px 24px; text-align: center; }
+  .pricing-banner-desc { max-width: 100%; }
+  .pricing-banner-right { width: 100%; }
+  .pricing-banner-right .btn-primary { width: 100%; text-align: center; }
+}
+
+.pricing-badge {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  padding: 4px 12px;
+  margin-bottom: 24px;
+}
+
+.pricing-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 600;
+  color: var(--gold-lt);
+  line-height: 1.1;
+  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+}
+
+.pricing-amount sup {
+  font-size: 24px;
+  font-weight: 300;
+  vertical-align: super;
+  color: var(--gold);
+}
+
+.pricing-period {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+.pricing-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin: 40px 0;
+}
+
+.pricing-features {
+  list-style: none;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 13px;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.pricing-features li::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.pricing-note {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  margin-top: 20px;
+}
+
+/* ─── FOUNDERS ─── */
+#founders {
+  padding: 120px 60px;
+  background: var(--black);
+}
+
+.founders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.founder-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 48px 40px;
+  position: relative;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.founder-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.founder-card:hover {
+  border-color: rgba(201,168,76,0.3);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 40px rgba(201,168,76,0.04);
+}
+
+.founder-card:hover::after { opacity: 1; }
+
+.founder-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 15%;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  filter: grayscale(30%);
+}
+
+.founder-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+
+.founder-role {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+}
+
+.founder-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 28px;
+}
+
+.founder-section-label {
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-dk);
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.founder-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.founder-line {
+  height: 10px;
+  background: var(--raised);
+  border-radius: 1px;
+}
+
+.founder-line.short  { width: 60%; }
+.founder-line.medium { width: 80%; }
+.founder-line.long   { width: 95%; }
+
+.founder-info-item {
+  font-size: 12px;
+  color: rgba(240,235,224,0.7);
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(200,180,140,0.06);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.founder-info-item:last-child { border-bottom: none; }
+
+.founder-info-item a {
+  color: rgba(240,235,224,0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.founder-info-item a:hover { color: var(--gold-lt); }
+
+/* ─── CTA BAND ─── */
+.cta-band {
+  padding: 100px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-band-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-band-title em {
+  font-style: italic;
+  color: var(--gold-lt);
+}
+
+.cta-band-sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── CONTACT ─── */
+#contact {
+  padding: 120px 60px;
+  background: var(--deep);
+}
+
+.contact-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: var(--muted); }
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--gold-dk);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.06);
+}
+
+.form-field select option { background: var(--surface); }
+.form-field textarea { resize: vertical; min-height: 120px; }
+
+/* ─── FOOTER ─── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: var(--black);
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.footer-copy {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.footer-regions {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.footer-regions span {
+  color: var(--gold-dk);
+}
+
+/* ─── SCROLL REVEAL ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  #hero, #services, #pricing, #founders, #contact, #process, .cta-band { padding-left: 24px; padding-right: 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+  .pricing-card { padding: 40px 28px; }
+  .founder-card { padding: 36px 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <a href="#" class="nav-logo">Corter <span>Digital</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#founders">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="btn-nav">Get a Free Quote</a>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <span class="hero-eyebrow">Pennsylvania &amp; Arizona's Digital Growth Partner</span>
+  <h1 class="hero-title">
+    Your Business,<br/><em>Elevated.</em>
+  </h1>
+  <p class="hero-sub">We handle your entire digital presence — social media, website, SEO, and analytics — so you can focus on running your business.</p>
+  <div class="hero-ctas">
+    <a href="#contact" class="btn-primary">Start Growing — From $500 / mo</a>
+    <a href="#services" class="btn-ghost">See What's Included</a>
+  </div>
+  <div class="hero-badge">
+    <div class="hero-stat">
+      <div class="hero-stat-num">5</div>
+      <div class="hero-stat-label">Core Services</div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">2</div>
+      <div class="hero-stat-label">States Covered</div>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">$500+</div>
+      <div class="hero-stat-label">Starting Monthly</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">What We Do</span>
+    <h2 class="section-title">Full-Spectrum<br/><em>Digital Marketing</em></h2>
+    <p class="section-desc">Everything your business needs to grow online, handled by our team from day one.</p>
+  </div>
+
+  <div class="services-carousel reveal">
+    <button class="carousel-arrow left" id="carouselPrev" aria-label="Previous">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+
+    <div class="carousel-track-wrap">
+      <div class="services-grid" id="carouselTrack">
+
+        <div class="service-card" data-index="0">
+          <div class="service-num">01</div>
+          <div class="service-title">Daily Content Posting</div>
+          <p class="service-desc">Consistent, strategic content keeps your audience engaged and your brand top of mind. We handle ideation, creation, and scheduling.</p>
+          <ul class="service-items">
+            <li>Content ideation &amp; strategy</li>
+            <li>Professional content creation</li>
+            <li>Metricool scheduling &amp; publishing</li>
+            <li>Client review &amp; approval workflow</li>
+            <li>Real-time performance analytics</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-index="1">
+          <div class="service-num">02</div>
+          <div class="service-title">Website Creation</div>
+          <p class="service-desc">A professionally built website that converts visitors into customers. Built to your specs, with full client collaboration throughout.</p>
+          <ul class="service-items">
+            <li>Custom website design &amp; build</li>
+            <li>Domain registration &amp; hosting setup</li>
+            <li>Client spec collaboration</li>
+            <li>Progress reviews &amp; revisions</li>
+            <li>Launch &amp; deployment</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-index="2">
+          <div class="service-num">03</div>
+          <div class="service-title">Social Media Management</div>
+          <p class="service-desc">We build your social presence from the ground up and manage it daily — keeping your brand active and your customers engaged.</p>
+          <ul class="service-items">
+            <li>Social media page creation</li>
+            <li>Custom icons &amp; branded graphics</li>
+            <li>Secure credential management</li>
+            <li>Comment &amp; DM responses</li>
+            <li>Ongoing community management</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-index="3">
+          <div class="service-num">04</div>
+          <div class="service-title">Google SEO</div>
+          <p class="service-desc">Get found by local customers searching for exactly what you offer. We optimize your Google presence to drive real foot traffic and leads.</p>
+          <ul class="service-items">
+            <li>Google Business profile creation</li>
+            <li>Photos, hours &amp; info optimization</li>
+            <li>Review generation strategy</li>
+            <li>Local SEO keyword targeting</li>
+            <li>Search ranking improvement</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-index="4">
+          <div class="service-num">05</div>
+          <div class="service-title">Analytical Reporting</div>
+          <p class="service-desc">Data-driven decisions keep your marketing sharp. Monthly calls, clear reports, and a plan that evolves with your business.</p>
+          <ul class="service-items">
+            <li>Monthly performance calls</li>
+            <li>Detailed analytics reports</li>
+            <li>Strategy pivots from data</li>
+            <li>Real-time Metricool dashboard</li>
+            <li>Growth benchmarking</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <button class="carousel-arrow right" id="carouselNext" aria-label="Next">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+
+    <div class="carousel-dots" id="carouselDots">
+      <button class="carousel-dot active" data-dot="0"></button>
+      <button class="carousel-dot" data-dot="1"></button>
+      <button class="carousel-dot" data-dot="2"></button>
+      <button class="carousel-dot" data-dot="3"></button>
+      <button class="carousel-dot" data-dot="4"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROCESS ─── -->
+<section id="process">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">How It Works</span>
+    <h2 class="section-title">Simple <em>Onboarding,</em><br/>Powerful Results</h2>
+  </div>
+  <div class="process-steps reveal">
+    <div class="process-step">
+      <div class="process-icon">I</div>
+      <div class="process-label">Free Consultation</div>
+    </div>
+    <div class="process-step">
+      <div class="process-icon">II</div>
+      <div class="process-label">Custom Plan</div>
+    </div>
+    <div class="process-step">
+      <div class="process-icon">III</div>
+      <div class="process-label">We Get to Work</div>
+    </div>
+    <div class="process-step">
+      <div class="process-icon">IV</div>
+      <div class="process-label">You Review &amp; Approve</div>
+    </div>
+    <div class="process-step">
+      <div class="process-icon">V</div>
+      <div class="process-label">Watch It Grow</div>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top: 48px;" class="reveal">
+    <a href="#contact" class="btn-primary">Begin Your Journey</a>
+  </div>
+</section>
+
+<!-- ─── PRICING ─── -->
+<section id="pricing">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">Transparent Pricing</span>
+    <h2 class="section-title">Grow On<br/><em>Your Terms.</em></h2>
+    <p class="section-desc">Every plan includes our full suite of services. Choose how aggressively you want to grow.</p>
+  </div>
+
+  <div class="pricing-grid">
+
+    <!-- Tier 1 -->
+    <div class="pricing-card reveal">
+      <div class="pricing-amount"><sup>$</sup>500</div>
+      <div class="pricing-period">Per Month</div>
+      <div class="pricing-divider"></div>
+      <div style="font-family:'Cormorant Garamond',serif; font-size:20px; color:var(--gold-lt); margin-bottom:20px; letter-spacing:0.04em;">1 Post / Week</div>
+      <ul class="pricing-features">
+        <li>Social media content creation &amp; posting</li>
+        <li>Website design &amp; development</li>
+        <li>Social media account management</li>
+        <li>Google Business &amp; SEO optimization</li>
+        <li>Monthly analytics &amp; strategy call</li>
+        <li>Metricool content approval dashboard</li>
+        <li>Dedicated AZ &amp; PA team</li>
+      </ul>
+      <a href="#contact" class="btn-ghost" style="width:100%; text-align:center; display:block;">Get Started</a>
+      <p class="pricing-note">No long-term contracts required.</p>
+    </div>
+
+    <!-- Tier 2 — Featured -->
+    <div class="pricing-card featured reveal">
+      <div class="pricing-badge">Most Popular</div>
+      <div class="pricing-amount"><sup>$</sup>1,000</div>
+      <div class="pricing-period">Per Month</div>
+      <div class="pricing-divider"></div>
+      <div style="font-family:'Cormorant Garamond',serif; font-size:20px; color:var(--gold-lt); margin-bottom:20px; letter-spacing:0.04em;">3 Posts / Week</div>
+      <ul class="pricing-features">
+        <li>Social media content creation &amp; posting</li>
+        <li>Website design &amp; development</li>
+        <li>Social media account management</li>
+        <li>Google Business &amp; SEO optimization</li>
+        <li>Monthly analytics &amp; strategy call</li>
+        <li>Metricool content approval dashboard</li>
+        <li>Dedicated AZ &amp; PA team</li>
+      </ul>
+      <a href="#contact" class="btn-primary" style="width:100%; text-align:center; display:block;">Get Started</a>
+      <p class="pricing-note">No long-term contracts required.</p>
+    </div>
+
+    <!-- Tier 3 -->
+    <div class="pricing-card reveal">
+      <div class="pricing-amount"><sup>$</sup>1,500</div>
+      <div class="pricing-period">Per Month</div>
+      <div class="pricing-divider"></div>
+      <div style="font-family:'Cormorant Garamond',serif; font-size:20px; color:var(--gold-lt); margin-bottom:20px; letter-spacing:0.04em;">5–7 Posts / Week</div>
+      <ul class="pricing-features">
+        <li>Social media content creation &amp; posting</li>
+        <li>Website design &amp; development</li>
+        <li>Social media account management</li>
+        <li>Google Business &amp; SEO optimization</li>
+        <li>Monthly analytics &amp; strategy call</li>
+        <li>Metricool content approval dashboard</li>
+        <li>Dedicated AZ &amp; PA team</li>
+      </ul>
+      <a href="#contact" class="btn-ghost" style="width:100%; text-align:center; display:block;">Get Started</a>
+      <p class="pricing-note">No long-term contracts required.</p>
+    </div>
+
+  </div>
+
+  <!-- Website One-Time Fee Banner -->
+  <div class="pricing-banner reveal">
+    <div class="pricing-banner-left">
+      <div class="pricing-banner-title">Website Creation</div>
+      <p class="pricing-banner-desc">A fully custom, professionally built website designed to your specifications — domain, hosting setup, and launch included.</p>
+      <span class="section-eyebrow" style="margin-top:16px; display:block;">One-Time Fee</span>
+    </div>
+    <div class="pricing-banner-right">
+      <div class="pricing-banner-amount"><sup>$</sup>1,500</div>
+      <a href="#contact" class="btn-primary">Get Your Site Built</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ─── CTA BAND ─── -->
+<section class="cta-band" style="background: var(--black);">
+  <h2 class="cta-band-title reveal">Ready to Dominate<br/><em>Your Local Market?</em></h2>
+  <p class="cta-band-sub reveal">Pennsylvania &amp; Arizona businesses — your competition is already online. Let's get you ahead.</p>
+  <div class="reveal">
+    <a href="#contact" class="btn-primary">Contact Us Now</a>
+  </div>
+</section>
+
+<!-- ─── FOUNDERS ─── -->
+<section id="founders" style="background: var(--deep);">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">The Team Behind Your Growth</span>
+    <h2 class="section-title">Meet the<br/><em>Founders</em></h2>
+    <p class="section-desc">Built by people who understand local business and what it takes to grow in today's digital landscape.</p>
+  </div>
+
+  <div class="founders-grid">
+
+    <!-- Tavin Jane -->
+    <div class="founder-card reveal">
+      <img src="tavin.png" alt="Tavin Jane" class="founder-photo" style="object-position: center 8%;" />
+      <div class="founder-name">Tavin Jane</div>
+      <div class="founder-role">Co-Founder</div>
+      <div class="founder-divider"></div>
+      <div class="founder-section-label">Experience</div>
+      <div class="founder-lines">
+        <div class="founder-info-item">NAU Computer Science</div>
+        <div class="founder-info-item">5M+ Views on Social Media</div>
+        <div class="founder-info-item">Web Development Expert</div>
+      </div>
+      <div class="founder-section-label">Contact</div>
+      <div class="founder-lines">
+        <div class="founder-info-item"><a href="mailto:tavinjane@gmail.com">tavinjane@gmail.com</a></div>
+        <div class="founder-info-item"><a href="tel:+14802257291">(480) 225-7291</a></div>
+      </div>
+    </div>
+
+    <!-- Andrew Corter -->
+    <div class="founder-card reveal" style="transform: scale(1.04); border-color: rgba(201,168,76,0.35); box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 60px rgba(201,168,76,0.12), 0 20px 60px rgba(0,0,0,0.4); z-index: 2; position: relative;">
+      <img src="Andrew.jpg" alt="Andrew Corter" class="founder-photo" style="object-position: center 30%;" />
+      <div class="founder-name">Andrew Corter</div>
+      <div class="founder-role">Owner</div>
+      <div class="founder-divider"></div>
+      <div class="founder-section-label">Experience</div>
+      <div class="founder-lines">
+        <div class="founder-info-item">Computer Science Major</div>
+        <div class="founder-info-item">8M+ Views on Social Media</div>
+        <div class="founder-info-item">60K+ Followers Gained</div>
+      </div>
+      <div class="founder-section-label">Contact</div>
+      <div class="founder-lines">
+        <div class="founder-info-item"><a href="mailto:acortersmma@gmail.com">acortersmma@gmail.com</a></div>
+        <div class="founder-info-item"><a href="tel:+15705024036">(570) 502-4036</a></div>
+      </div>
+    </div>
+
+    <!-- Kevin Zeigmann Jr. -->
+    <div class="founder-card reveal">
+      <img src="kevin.png" alt="Kevin Zeigmann Jr." class="founder-photo" style="object-position: center 58%;" />
+      <div class="founder-name">Kevin Zeigmann Jr.</div>
+      <div class="founder-role">Co-Founder</div>
+      <div class="founder-divider"></div>
+      <div class="founder-section-label">Experience</div>
+      <div class="founder-lines">
+        <div class="founder-info-item">5+ Years Logistics Management</div>
+        <div class="founder-info-item">2M+ Views on Social Media</div>
+        <div class="founder-info-item">8+ Years Content Creation</div>
+      </div>
+      <div class="founder-section-label">Contact</div>
+      <div class="founder-lines">
+        <div class="founder-info-item"><a href="mailto:kevin.ziegmann@gmail.com">kevin.ziegmann@gmail.com</a></div>
+        <div class="founder-info-item"><a href="tel:+15705601867">(570) 560-1867</a></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact" style="background: var(--black);">
+  <div class="contact-inner">
+    <div class="section-header reveal" style="text-align:left; margin-bottom: 0;">
+      <span class="section-eyebrow">Get In Touch</span>
+      <h2 class="section-title">Let's Talk About<br/><em>Your Business</em></h2>
+      <p class="section-desc" style="margin:0; text-align:left;">Tell us about your business and we'll put together a custom plan. No obligation — just a conversation.</p>
+    </div>
+
+    <form class="contact-form reveal" id="quoteForm" onsubmit="handleSubmit(event)">
+      <!-- Formspree hidden fields -->
+      <input type="hidden" name="_cc" value="tavinjane@gmail.com,kevin.ziegmann@gmail.com" />
+      <input type="hidden" name="_subject" value="New Quote Request — Corter Digital Marketing" />
+      <input type="hidden" name="_next" value="" />
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+        </div>
+        <div class="form-field">
+          <label for="biz">Business Name</label>
+          <input type="text" id="biz" name="business_name" placeholder="Smith & Co." required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@yourbusiness.com" required />
+        </div>
+        <div class="form-field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="(480) 555-0100" />
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="state">Your State</label>
+        <select id="state" name="state">
+          <option value="">Select a state...</option>
+          <option value="Arizona">Arizona</option>
+          <option value="Pennsylvania">Pennsylvania</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="needs">What Do You Need?</label>
+        <textarea id="needs" name="message" placeholder="Tell us a bit about your business and your marketing goals..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="margin-top: 8px;">Send My Free Quote Request</button>
+    </form>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <a href="#" class="footer-logo">Corter Digital</a>
+  <span class="footer-copy">© 2025 Corter Digital Marketing. All rights reserved.</span>
+  <span class="footer-regions">Serving <span>Pennsylvania</span> &amp; <span>Arizona</span></span>
+</footer>
+
+<script>
+// Services Carousel
+(function() {
+  const cards = Array.from(document.querySelectorAll('.service-card'));
+  const dots  = Array.from(document.querySelectorAll('.carousel-dot'));
+  const total = cards.length;
+  let current = 0;
+
+  function getClass(i) {
+    const diff = ((i - current) % total + total) % total;
+    if (diff === 0) return 'active';
+    if (diff === 1) return 'next';
+    if (diff === 2) return 'next2';
+    if (diff === total - 1) return 'prev';
+    if (diff === total - 2) return 'prev2';
+    return 'hidden';
+  }
+
+  function update() {
+    cards.forEach((card, i) => {
+      card.className = 'service-card ' + getClass(i);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === current);
+    });
+  }
+
+  document.getElementById('carouselNext').addEventListener('click', () => {
+    current = (current + 1) % total;
+    update();
+  });
+
+  document.getElementById('carouselPrev').addEventListener('click', () => {
+    current = (current - 1 + total) % total;
+    update();
+  });
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      current = parseInt(dot.dataset.dot);
+      update();
+    });
+  });
+
+  // Touch swipe support
+  const wrap = document.querySelector('.carousel-track-wrap');
+  let touchStartX = 0;
+  wrap.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  wrap.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      current = diff > 0 ? (current + 1) % total : (current - 1 + total) % total;
+      update();
+    }
+  }, { passive: true });
+
+  update();
+})();
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Form submit — sends to Formspree
+async function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type=submit]');
+  const ENDPOINT = 'https://formspree.io/f/mojkgeyv';
+
+
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  try {
+    const data = new FormData(form);
+    const res = await fetch(ENDPOINT, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      btn.textContent = 'Quote Request Sent — We\'ll Be In Touch!';
+      btn.style.background = 'var(--gold-dk)';
+      form.reset();
+    } else {
+      btn.textContent = 'Something went wrong — please try again.';
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = 'Something went wrong — please try again.';
+    btn.disabled = false;
+  }
+}
+</script>
+</body>
+</html>
